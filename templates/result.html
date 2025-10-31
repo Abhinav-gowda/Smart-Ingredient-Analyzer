@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <style>
+        table { border-collapse: collapse; width: 70%; margin: auto; }
+        th, td { border: 1px solid #888; padding: 8px; text-align: center; }
+        th { background-color: #f0f0f0; }
+        .safe { color: green; text-align: center; }
+        .moderate { color: orange; text-align: center; }
+        .harmful { color: red; text-align: center; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <h2 class="{% if 'Safe' in status %}safe{% elif 'Moderate' in status %}moderate{% else %}harmful{% endif %}">
+        Overall Result: {{ status }}
+    </h2>
+    <table>
+        <tr>
+            <th>Ingredient</th>
+            <th>Impact</th>
+            <th>Side Effects</th>
+        </tr>
+        {% for item in results %}
+        <tr>
+            <td>{{ item.ingredient }}</td>
+            <td class="{% if item.impact.lower() == 'safe' %}safe{% elif item.impact.lower() == 'harmful' %}harmful{% else %}moderate{% endif %}">
+                {{ item.impact }}
+            </td>
+            <td>{{ item.side_effects }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <div style="text-align:center;"><a href="/">← Back</a></div>
+</body>
+</html>

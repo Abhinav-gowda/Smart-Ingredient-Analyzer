@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+uploads/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.DS_Store
+.vscode/

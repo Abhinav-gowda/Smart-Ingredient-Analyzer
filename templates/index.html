@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Ingredient Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Enter ingredients separated by commas:</h2>
+    <form action="/analyze" method="post">
+        <textarea name="ingredients" rows="5" cols="50"></textarea><br><br>
+        <button type="submit">Analyze</button>
+    </form>
+</body>
+</html>
